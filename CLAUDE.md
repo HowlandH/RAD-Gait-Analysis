@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## User Preferences
+
+- **Never use emojis** in any documentation, code files, or communication
+
 ## Project Overview
 
 This repository contains a running gait tracker device that monitors stride length, foot strike patterns, and cadence. The system consists of:

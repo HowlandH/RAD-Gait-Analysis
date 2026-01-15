@@ -86,9 +86,9 @@ class BLEManager: NSObject, ObservableObject {
 - Large cadence display (primary metric)
 - Stride length with running average
 - Color-coded foot strike indicator:
-  - 🔴 Red = Heel strike (higher impact)
-  - 🟡 Yellow = Midfoot strike (moderate)
-  - 🟢 Green = Forefoot strike (lower impact)
+  - Red = Heel strike (higher impact)
+  - Yellow = Midfoot strike (moderate)
+  - Green = Forefoot strike (lower impact)
 - Distance counter (stride × steps)
 - Run timer
 - Battery indicator

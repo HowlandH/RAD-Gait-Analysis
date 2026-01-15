@@ -4,7 +4,7 @@ Quick start guide to begin developing your running gait tracker device.
 
 ## What You Have Now
 
-✅ **Complete Project Structure**
+**Complete Project Structure**
 - Arduino firmware skeleton (all 6 modules)
 - iOS app structure and documentation
 - Configuration files
@@ -125,7 +125,7 @@ On your iPhone:
 1. Download "nRF Connect" app from App Store
 2. Open app and tap "SCAN"
 3. Look for device named "GaitTracker"
-4. If you see it, BLE is working! ✅
+4. If you see it, BLE is working!
 
 #### 9. Test Strike Detection
 With device powered and serial monitor open:
@@ -137,7 +137,7 @@ With device powered and serial monitor open:
    Strike classified as: MIDFOOT (pitch: 2.3°)
    ```
 
-If you see this, congratulations! Your hardware is working! 🎉
+If you see this, congratulations! Your hardware is working!
 
 ## Troubleshooting
 
@@ -214,4 +214,4 @@ Then proceed through Phases 5-10 as outlined in [initial.md](initial.md).
 - `IMU_READ_INTERVAL` - 10ms = 100Hz
 - `DEBUG_MODE` - Set to `true` for verbose output
 
-Good luck building your gait tracker! 🏃‍♂️
+Good luck building your gait tracker!

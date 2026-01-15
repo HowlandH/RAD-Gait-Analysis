@@ -93,17 +93,17 @@ Coming in Phase 5
 
 Current phase: **PHASE 1 - Hardware Setup & Verification**
 
-1. ✅ **Project Setup** - Create directory structure and initial files
-2. ⏳ **Hardware Setup** - Assemble breadboard and test components
-3. ⏳ **IMU Data Acquisition** - Build sensor reading pipeline
-4. ⏳ **Gait Detection** - Implement strike detection algorithms
-5. ⏳ **BLE Communication** - Set up Bluetooth data transmission
-6. ⏳ **iOS App** - Create app with real-time dashboard
-7. ⏳ **Enclosure Design** - Design and print protective case
-8. ⏳ **System Integration** - Assemble complete device
-9. ⏳ **Field Testing** - Validate accuracy on treadmill and track
-10. ⏳ **Algorithm Tuning** - Refine based on field data
-11. ⏳ **Documentation** - Create user manual and technical docs
+1. **[COMPLETE]** Project Setup - Create directory structure and initial files
+2. **[PENDING]** Hardware Setup - Assemble breadboard and test components
+3. **[PENDING]** IMU Data Acquisition - Build sensor reading pipeline
+4. **[PENDING]** Gait Detection - Implement strike detection algorithms
+5. **[PENDING]** BLE Communication - Set up Bluetooth data transmission
+6. **[PENDING]** iOS App - Create app with real-time dashboard
+7. **[PENDING]** Enclosure Design - Design and print protective case
+8. **[PENDING]** System Integration - Assemble complete device
+9. **[PENDING]** Field Testing - Validate accuracy on treadmill and track
+10. **[PENDING]** Algorithm Tuning - Refine based on field data
+11. **[PENDING]** Documentation - Create user manual and technical docs
 
 See [initial.md](initial.md) for complete implementation plan.
 
@@ -159,11 +159,11 @@ cadence = (strike_count - 1) / time_span × 60
 
 ## Success Criteria
 
-- ✓ Cadence accuracy: ±3 steps/min
-- ✓ Stride length accuracy: ±5%
-- ✓ Strike classification: >80% agreement
-- ✓ Battery life: ≥3 hours
-- ✓ BLE connection: Stable for entire run
+- Cadence accuracy: ±3 steps/min
+- Stride length accuracy: ±5%
+- Strike classification: >80% agreement
+- Battery life: ≥3 hours
+- BLE connection: Stable for entire run
 
 ## Documentation
 

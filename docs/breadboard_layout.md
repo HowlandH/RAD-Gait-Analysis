@@ -76,7 +76,7 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 - **From:** MPU-6050 `VCC` pin
 - **To:** Arduino Nano `3.3V` pin
 - **Wire Color:** RED (recommended)
-- **⚠️ CRITICAL:** Use 3.3V, NOT 5V! The MPU-6050 is not 5V tolerant!
+- **CRITICAL:** Use 3.3V, NOT 5V! The MPU-6050 is not 5V tolerant!
 
 #### Connection 2: Ground (GND)
 - **From:** MPU-6050 `GND` pin
@@ -117,7 +117,7 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 #### Connection 7: Battery Positive
 - **From:** LiPo Battery RED wire (+)
 - **To:** MP2636 `BAT+` pin
-- **⚠️ IMPORTANT:** Double-check polarity! Reversed polarity can damage battery or module!
+- **IMPORTANT:** Double-check polarity! Reversed polarity can damage battery or module!
 
 #### Connection 8: Battery Negative
 - **From:** LiPo Battery BLACK wire (-)
@@ -174,7 +174,7 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 
 ## Important Safety Notes
 
-### ⚠️ CRITICAL WARNINGS
+### CRITICAL WARNINGS
 
 1. **MPU-6050 VOLTAGE:**
    - MUST use 3.3V, NOT 5V
@@ -202,20 +202,20 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 
 After assembly, verify each step:
 
-### ✓ Visual Inspection
+###Visual Inspection
 - [ ] All wires seated firmly in breadboard holes
 - [ ] No loose connections
 - [ ] MPU-6050 connected to 3.3V (not 5V)
 - [ ] Battery polarity correct (red to BAT+, black to BAT-)
 - [ ] No wires crossed or touching
 
-### ✓ Power-On Test (without USB programming cable)
+###Power-On Test (without USB programming cable)
 - [ ] Connect battery to MP2636
 - [ ] Arduino power LED should light up
 - [ ] MPU-6050 power LED should light up (if equipped)
 - [ ] No smoke, burning smell, or excessive heat
 
-### ✓ I2C Communication Test
+###I2C Communication Test
 - [ ] Connect Arduino to computer via Micro-USB
 - [ ] Upload I2C scanner sketch
 - [ ] Open Serial Monitor (115200 baud)
@@ -229,7 +229,7 @@ I2C device found at address 0x68  !
 done
 ```
 
-### ✓ IMU Data Test
+###IMU Data Test
 - [ ] Upload basic MPU-6050 test sketch
 - [ ] Verify accelerometer readings (~1g on Z-axis when flat)
 - [ ] Move device and observe values change
