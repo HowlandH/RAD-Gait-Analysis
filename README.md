@@ -175,6 +175,7 @@ cadence = (strike_count - 1) / time_span × 60
 
 This project is for educational purposes.
 
-## Author
+## Authors
 
-Hudson's Projects - 2026
+Hudson Howland
+Brantley Field
