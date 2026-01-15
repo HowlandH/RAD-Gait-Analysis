@@ -334,3 +334,6 @@ local_config.h
 !enclosure/*.stl
 !enclosure/*.iam
 !enclosure/*.ipt
+
+# Scratch
+Scratch/

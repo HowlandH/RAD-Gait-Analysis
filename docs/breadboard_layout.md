@@ -34,27 +34,29 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
          │   SDA ●──┼───GREEN───────────┼──● A4 (SDA)       │
          │   XDA ●  │                   │                    │
          │   XCL ●  │                   │  ● VIN ────────────┼──ORANGE──┐
-         │   AD0 ●  │                   │  ● GND ────────────┼──BROWN───┤
-         │   INT ●  │                   │                    │          │
-         └──────────┘                   └────────────────────┘          │
-                                                                         │
-                                        MP2636 Power Module              │
-                                        ┌──────────────┐                │
-                                        │   USB-C IN   │ (for charging) │
-                                        │              │                │
-                                        │  5V OUT ●────┼────────────────┘
-                                        │  GND    ●────┼────────────────┐
-                                        │              │                │
-                                        │  BAT+   ●────┼───RED──┐       │
-                                        │  BAT-   ●────┼───BLACK┤       │
-                                        └──────────────┘        │       │
-                                                                │       │
-                                        3.7V LiPo Battery       │       │
-                                        ┌──────────────┐        │       │
-                                        │   700mAh     │        │       │
-                                        │  +  ●────────┼────────┘       │
-                                        │  -  ●────────┼────────────────┘
-                                        └──────────────┘
+         │   AD0 ●  │                   │  ● GND ────────────┼──BROWN───┼──┐
+         │   INT ●  │                   │                    │          │  │
+         └──────────┘                   └────────────────────┘          │  │
+                                                                         │  │
+                                        MP2636 Power Module              │  │
+                                        ┌──────────────┐                │  │
+                                        │ Micro-USB IN │ (for charging) │  │
+                                        │  USB-A OUT   │ (5V output)    │  │
+                                        │  VOUT   ●────┼────────────────┘  │
+                                        │  GND    ●────┼───────────────────┘
+                                        │              │
+                                        │  BAT+   ●────┼───RED──┐
+                                        │  BAT-   ●────┼───BLACK┤
+                                        └──────────────┘        │
+                                                                │
+                                        3.7V LiPo Battery       │
+                                        ┌──────────────┐        │
+                                        │   700mAh     │        │
+                                        │  +  ●────────┼────────┘
+                                        │  -  ●────────┼────────┐
+                                        └──────────────┘        │
+                                                                │
+                                    (connects to BAT- above) ───┘
 ```
 
 ## Step-by-Step Assembly
@@ -102,7 +104,7 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 ### Step 3: MP2636 to Arduino Connections
 
 #### Connection 5: 5V Power Output
-- **From:** MP2636 `5V OUT` pin
+- **From:** MP2636 `VOUT` pin
 - **To:** Arduino Nano `VIN` pin
 - **Wire Color:** ORANGE (recommended)
 - **Note:** This powers the Arduino from the battery
@@ -125,8 +127,9 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 
 ### Step 5: USB Connection for Charging
 
-- **Plug USB-C cable into MP2636 module** (not the Arduino)
+- **Plug Micro-USB cable into MP2636 module** (not the Arduino)
 - **Connect to USB power adapter or computer** to charge battery
+- **Note:** The USB-A port is a 5V OUTPUT (alternative to VOUT pin), not for charging
 - **LED indicator on MP2636** will show charging status:
   - Red = Charging
   - Green = Fully charged
@@ -139,7 +142,7 @@ Complete wiring diagram and assembly instructions for the Gait Tracker breadboar
 | 2 | MPU-6050 GND | Arduino GND | BLACK | Common ground |
 | 3 | MPU-6050 SCL | Arduino A5 | YELLOW | I2C clock |
 | 4 | MPU-6050 SDA | Arduino A4 | GREEN | I2C data |
-| 5 | MP2636 5V OUT | Arduino VIN | ORANGE | Powers Arduino |
+| 5 | MP2636 VOUT | Arduino VIN | ORANGE | Powers Arduino |
 | 6 | MP2636 GND | Arduino GND | BROWN | Common ground |
 | 7 | LiPo + (red) | MP2636 BAT+ | RED | Check polarity! |
 | 8 | LiPo - (black) | MP2636 BAT- | BLACK | Check polarity! |
@@ -255,14 +258,14 @@ done
 
 **Check:**
 1. Battery charged? (use multimeter: should read ~3.7-4.2V)
-2. MP2636 5V OUT connected to Arduino VIN?
+2. MP2636 VOUT connected to Arduino VIN?
 3. Common ground between MP2636 and Arduino?
 4. Battery polarity correct?
 
 **Try:**
-- Charge battery via USB-C on MP2636
+- Charge battery via Micro-USB on MP2636
 - Test with Arduino connected to computer USB (bypasses battery)
-- Use multimeter to verify 5V on MP2636 output
+- Use multimeter to verify 5V on MP2636 VOUT or USB-A output
 
 ### Accelerometer Readings Wrong
 
