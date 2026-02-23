@@ -5,28 +5,19 @@
  */
 
 #include "ble_comms.h"
-// TODO: Add ArduinoBLE library
-// #include <ArduinoBLE.h>
+#include <ArduinoBLE.h>
 
 // Global variables
 bool bleConnected = false;
 
-// TODO: Uncomment when ArduinoBLE is installed
-/*
 BLEService gaitService(GAIT_SERVICE_UUID);
 
 BLEFloatCharacteristic strideLengthChar(STRIDE_LENGTH_CHAR_UUID, BLERead | BLENotify);
 BLEUnsignedIntCharacteristic cadenceChar(CADENCE_CHAR_UUID, BLERead | BLENotify);
 BLEByteCharacteristic strikeTypeChar(STRIKE_TYPE_CHAR_UUID, BLERead | BLENotify);
 BLEByteCharacteristic batteryChar(BATTERY_CHAR_UUID, BLERead | BLENotify);
-*/
 
 void initBLE() {
-  Serial.println("BLE initialization placeholder");
-
-  // TODO: Replace with actual BLE initialization
-  /*
-  // Actual implementation:
   if (!BLE.begin()) {
     Serial.println("Starting BLE failed!");
     while (1);
@@ -58,7 +49,6 @@ void initBLE() {
 
   Serial.println("BLE service started. Device name: " + String(BLE_DEVICE_NAME));
   Serial.println("Waiting for connections...");
-  */
 }
 
 void updateBLEMetrics(float strideLength, StrikeType strikeType) {
@@ -66,9 +56,6 @@ void updateBLEMetrics(float strideLength, StrikeType strikeType) {
     return;
   }
 
-  // TODO: Replace with actual BLE update
-  /*
-  // Actual implementation:
   strideLengthChar.writeValue(strideLength);
   strikeTypeChar.writeValue((uint8_t)strikeType);
 
@@ -78,7 +65,6 @@ void updateBLEMetrics(float strideLength, StrikeType strikeType) {
     Serial.print(" m | Strike: ");
     Serial.println(strikeType);
   }
-  */
 }
 
 void updateBLECadence(float cadence) {
@@ -86,9 +72,6 @@ void updateBLECadence(float cadence) {
     return;
   }
 
-  // TODO: Replace with actual BLE update
-  /*
-  // Actual implementation:
   cadenceChar.writeValue((uint16_t)cadence);
 
   if (DEBUG_MODE) {
@@ -96,7 +79,6 @@ void updateBLECadence(float cadence) {
     Serial.print(cadence, 0);
     Serial.println(" steps/min");
   }
-  */
 }
 
 void updateBLEBattery(uint8_t batteryPercent) {
@@ -104,9 +86,6 @@ void updateBLEBattery(uint8_t batteryPercent) {
     return;
   }
 
-  // TODO: Replace with actual BLE update
-  /*
-  // Actual implementation:
   batteryChar.writeValue(batteryPercent);
 
   if (DEBUG_MODE) {
@@ -114,13 +93,9 @@ void updateBLEBattery(uint8_t batteryPercent) {
     Serial.print(batteryPercent);
     Serial.println("%");
   }
-  */
 }
 
 void handleBLEConnection() {
-  // TODO: Replace with actual BLE connection handling
-  /*
-  // Actual implementation:
   BLEDevice central = BLE.central();
 
   if (central) {
@@ -135,7 +110,6 @@ void handleBLEConnection() {
       Serial.println("Disconnected from central");
     }
   }
-  */
 }
 
 bool isBLEConnected() {

@@ -7,9 +7,8 @@
 #include "imu_sensor.h"
 #include "config.h"
 #include <Wire.h>
-// TODO: Add MPU6050 library (Adafruit or I2Cdevlib)
-// #include <Adafruit_MPU6050.h>
-// #include <Adafruit_Sensor.h>
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_Sensor.h>
 
 // Global variables
 float pitch = 0.0;
@@ -22,18 +21,12 @@ float gyroOffsetZ = 0.0;
 unsigned long lastUpdateTime = 0;
 unsigned long lastMotionTime = 0;
 
-// TODO: Uncomment when library is installed
-// Adafruit_MPU6050 mpu;
+Adafruit_MPU6050 mpu;
 
 void initIMU() {
   // Initialize I2C
   Wire.begin();
 
-  // TODO: Replace with actual MPU6050 initialization
-  Serial.println("IMU initialization placeholder");
-
-  /*
-  // Actual implementation:
   if (!mpu.begin(MPU6050_ADDRESS)) {
     Serial.println("Failed to find MPU6050 chip");
     while (1) {
@@ -52,7 +45,6 @@ void initIMU() {
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
 
   Serial.println("MPU6050 initialized successfully");
-  */
 
   lastUpdateTime = millis();
   lastMotionTime = millis();
@@ -61,11 +53,6 @@ void initIMU() {
 void calibrateIMU() {
   Serial.println("Calibrating IMU... Keep device still on flat surface");
 
-  // TODO: Replace with actual calibration
-  Serial.println("Calibration placeholder - using default offsets");
-
-  /*
-  // Actual implementation:
   const int numSamples = 100;
   float sumGX = 0, sumGY = 0, sumGZ = 0;
 
@@ -90,23 +77,11 @@ void calibrateIMU() {
   Serial.print(gyroOffsetY, 4);
   Serial.print(" Z: ");
   Serial.println(gyroOffsetZ, 4);
-  */
 
   Serial.println("Calibration complete");
 }
 
 void readIMUData(float &ax, float &ay, float &az, float &gx, float &gy, float &gz) {
-  // TODO: Replace with actual sensor reading
-  // Placeholder values
-  ax = 0.0;
-  ay = 0.0;
-  az = 1.0; // 1g on Z-axis when flat
-  gx = 0.0;
-  gy = 0.0;
-  gz = 0.0;
-
-  /*
-  // Actual implementation:
   sensors_event_t accel, gyro, temp;
   mpu.getEvent(&accel, &gyro, &temp);
 
@@ -119,7 +94,6 @@ void readIMUData(float &ax, float &ay, float &az, float &gx, float &gy, float &g
   gx = (gyro.gyro.x - gyroOffsetX) * 57.2958; // rad/s to deg/s
   gy = (gyro.gyro.y - gyroOffsetY) * 57.2958;
   gz = (gyro.gyro.z - gyroOffsetZ) * 57.2958;
-  */
 }
 
 void updateOrientation() {
