@@ -28,17 +28,16 @@ bool detectFootStrike(float az) {
     return false;
   }
 
+  static float lastAz = 0.0;
+
   // Detect strike when acceleration exceeds threshold
   if (verticalAccel > STRIKE_THRESHOLD) {
     // Confirm it's a peak (not just rising edge)
     // by checking if we're starting to decelerate
-    static float lastAz = 0.0;
-    if (verticalAccel < lastAz) { // Deceleration started
+    if (verticalAccel < lastAz) { // Deceleration started - we passed the peak
       lastStrikeTime = currentTime;
       peakAcceleration = 0.0;
-
-      // Reset swing angle tracking for stride length calculation
-      resetSwingAngle();
+      lastAz = 0.0;
 
       if (DEBUG_MODE) {
         Serial.println(">>> Foot strike detected <<<");
@@ -46,9 +45,9 @@ bool detectFootStrike(float az) {
 
       return true;
     }
-    lastAz = verticalAccel;
   }
 
+  lastAz = verticalAccel;
   return false;
 }
 

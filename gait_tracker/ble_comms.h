@@ -1,4 +1,4 @@
-/*
+``/*
  * BLE Communication Module - Header
  *
  * Handles Bluetooth Low Energy communication with iOS app

@@ -60,6 +60,15 @@ void loop() {
     float ax, ay, az, gx, gy, gz;
     readIMUData(ax, ay, az, gx, gy, gz);
 
+    // Stream raw IMU values for debugging
+    if (ENABLE_IMU_STREAM) {
+      Serial.print("az: ");
+      Serial.print(az, 3);
+      Serial.print("g | total: ");
+      Serial.print(sqrt(ax*ax + ay*ay + az*az), 3);
+      Serial.println("g");
+    }
+
     // Update orientation estimation
     updateOrientation();
 
@@ -68,8 +77,9 @@ void loop() {
       // Classify strike type based on pitch angle
       StrikeType strike = classifyStrike(ax, ay, az, getPitchAngle());
 
-      // Calculate stride length
+      // Calculate stride length then reset swing angle for next stride
       float stride = calculateStrideLength(getMaxSwingAngle());
+      resetSwingAngle();
 
       // Increment step count
       incrementStepCount();
@@ -112,10 +122,10 @@ void loop() {
   // Handle BLE connection events
   handleBLEConnection();
 
-  // Power management - enter low power mode if stationary
-  if (isStationary() && getTimeSinceLastMotion() > IDLE_TIMEOUT) {
-    enterLowPowerMode();
-  }
+  // Power management - disabled until after presentation
+  // if (isStationary() && getTimeSinceLastMotion() > IDLE_TIMEOUT) {
+  //   enterLowPowerMode();
+  // }
 
   // Small delay to maintain 100Hz loop rate
   delay(1);

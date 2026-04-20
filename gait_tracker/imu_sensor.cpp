@@ -117,8 +117,8 @@ void updateOrientation() {
   pitch = ALPHA * pitch + (1.0 - ALPHA) * accelPitch;
   roll = ALPHA * roll + (1.0 - ALPHA) * accelRoll;
 
-  // Track maximum swing angle during stride (use gyro Z for sagittal plane)
-  float currentSwingAngle = abs(gz * dt);
+  // Track maximum swing angle during stride using absolute pitch angle
+  float currentSwingAngle = abs(pitch);
   if (currentSwingAngle > maxSwingAngle) {
     maxSwingAngle = currentSwingAngle;
   }
@@ -130,9 +130,13 @@ void updateOrientation() {
   }
 
   if (DEBUG_MODE) {
-    // Uncomment for detailed debugging
-    // Serial.print("Pitch: "); Serial.print(pitch, 1);
-    // Serial.print(" Roll: "); Serial.println(roll, 1);
+    static int debugCounter = 0;
+    if (++debugCounter >= 20) { // Print every 20 reads = every 200ms
+      debugCounter = 0;
+      Serial.print("Pitch: "); Serial.print(pitch, 1);
+      Serial.print("° | MaxSwing: "); Serial.print(maxSwingAngle, 1);
+      Serial.println("°");
+    }
   }
 }
 

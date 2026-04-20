@@ -29,7 +29,7 @@
 
 // ===== Gait Detection Configuration =====
 // Foot strike detection threshold (in g's)
-#define STRIKE_THRESHOLD 2.0
+#define STRIKE_THRESHOLD 1.5
 
 // Debounce time to ignore secondary peaks (ms)
 #define STRIKE_DEBOUNCE 200
@@ -84,7 +84,7 @@
 
 // ===== Debug Configuration =====
 // Set to true to enable verbose serial debug output
-#define DEBUG_MODE true
+#define DEBUG_MODE false
 
 // Set to true to enable IMU data streaming over BLE (for debugging)
 #define ENABLE_IMU_STREAM false

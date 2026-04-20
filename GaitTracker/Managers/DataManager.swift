@@ -1,6 +1,5 @@
 import Foundation
 import Combine
-import SwiftUI
 
 class DataManager: ObservableObject {
     @Published var runHistory: [RunRecord] = []
@@ -18,11 +17,6 @@ class DataManager: ObservableObject {
 
     func delete(at offsets: IndexSet) {
         runHistory.remove(atOffsets: offsets)
-        persist()
-    }
-
-    func deleteAll() {
-        runHistory.removeAll()
         persist()
     }
 
