@@ -13,6 +13,8 @@
 // Global variables
 float pitch = 0.0;
 float roll = 0.0;
+float correctedPitch = 0.0;
+float pitchOffset = 0.0;
 float maxSwingAngle = 0.0;
 float gyroOffsetX = 0.0;
 float gyroOffsetY = 0.0;
@@ -78,6 +80,26 @@ void calibrateIMU() {
   Serial.print(" Z: ");
   Serial.println(gyroOffsetZ, 4);
 
+  // Warm up complementary filter so pitch converges to the actual mounting angle
+  Serial.println("Measuring mounting angle... Keep device on shoe, hold still");
+  lastUpdateTime = millis();
+  for (int i = 0; i < 200; i++) {
+    updateOrientation();
+    delay(10);
+  }
+
+  // Average pitch over 100 samples to get stable resting offset
+  float sumPitch = 0;
+  for (int i = 0; i < 100; i++) {
+    updateOrientation();
+    sumPitch += pitch;
+    delay(10);
+  }
+  pitchOffset = sumPitch / 100;
+
+  Serial.print("Mounting angle offset: ");
+  Serial.print(pitchOffset, 1);
+  Serial.println(" degrees");
   Serial.println("Calibration complete");
 }
 
@@ -117,8 +139,11 @@ void updateOrientation() {
   pitch = ALPHA * pitch + (1.0 - ALPHA) * accelPitch;
   roll = ALPHA * roll + (1.0 - ALPHA) * accelRoll;
 
-  // Track maximum swing angle during stride using absolute pitch angle
-  float currentSwingAngle = abs(pitch);
+  // Remove static mounting angle so pitch is relative to the shoe's resting position
+  correctedPitch = pitch - pitchOffset;
+
+  // Track maximum swing angle using corrected pitch
+  float currentSwingAngle = abs(correctedPitch);
   if (currentSwingAngle > maxSwingAngle) {
     maxSwingAngle = currentSwingAngle;
   }
@@ -141,7 +166,7 @@ void updateOrientation() {
 }
 
 float getPitchAngle() {
-  return pitch;
+  return correctedPitch;
 }
 
 float getRollAngle() {
