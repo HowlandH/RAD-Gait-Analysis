@@ -167,7 +167,7 @@ Located in `GaitTrackerX/`. Built in Swift/SwiftUI. Active Xcode project: `GaitT
 
 Feedback gathered from three evaluators:
 
-**Jackson — Peer / Cross-Country Runner:** Validated the core concept. Suggested adding padding to the enclosure and rounding the corners for comfort. Conditionally willing to use and recommend the device once accuracy is demonstrated.
+**Jackson — Peer / Athlete :** Validated the core concept. Suggested adding padding to the enclosure and rounding the corners for comfort. Conditionally willing to use and recommend the device once accuracy is demonstrated.
 
 **Trey — Software Engineer:** Called it an impressive first prototype. Approved of the real-time plus historical data display approach. Raised questions about data privacy and storage that were addressed: all data is stored locally on the user's iPhone with no cloud connection or external transmission.
 
