@@ -189,7 +189,6 @@ Then proceed through Phases 5-10 as outlined in [initial.md](initial.md).
 **Check these files:**
 - [README.md](README.md) - Project overview
 - [initial.md](initial.md) - Complete implementation plan
-- [CLAUDE.md](CLAUDE.md) - Technical architecture
 - [gait_tracker/README.md](gait_tracker/README.md) - Firmware details
 
 **Common Issues:**

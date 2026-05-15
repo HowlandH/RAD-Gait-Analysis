@@ -210,7 +210,6 @@ RAD-Gait-Analysis/
 ├── test_sketches/             # Standalone hardware test sketches
 ├── RAD_Project_Briefing.md    # Full project context document
 ├── CHANGELOG.md
-├── CLAUDE.md
 └── README.md
 ```
 

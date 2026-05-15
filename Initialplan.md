@@ -1,4 +1,3 @@
-Claude’s Plan
 Running Gait Tracker - Implementation Plan
 Project Context
 Problem Statement (from slides 14-17)
